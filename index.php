@@ -169,7 +169,7 @@ function L2($data, $dataAll)
 
                 array_push($ex, $pair);
                 $support       = supportCount($pair, $dataAll);
-                $confidence    = confidentCount($pair, $dataAll);
+                $confidence    = confidenceCount($pair, $dataAll);
 
                 if ($support > 0) {
                     $out[$pair] = [
@@ -214,7 +214,7 @@ function L3($data, $all, $minSupport,$minConfidence)
 
     for ($i = 0; $i < count($ex); $i++) {
         $support       = supportCount($ex[$i], $all);
-        $confidence    = confidentCount($ex[$i], $all);
+        $confidence    = confidenceCount($ex[$i], $all);
 
         // echo $support."<br>";
         if ($support >= $minSupport && $confidence >= $minConfidence) {
@@ -289,7 +289,7 @@ function checkIsDone($data, $minSupport)
     return false;
 }
 
-function confidentCount($pair,$all){
+function confidenceCount($pair,$all){
     $x      = explode(",", $pair);
     $len    = count($x);
 
