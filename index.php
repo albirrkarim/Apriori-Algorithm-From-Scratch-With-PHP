@@ -64,8 +64,8 @@ function printable($var){
 
 function train($all)
 {
-    $minSupport     = 30;
-    $minConfidence  = 50;
+    $minSupport     = 50;
+    $minConfidence  = 75;
 
     // Hanya sampai L3
 
@@ -84,18 +84,30 @@ function train($all)
 }
 
 
+// Tulis datasetnya
+
+// Latihan UAS
+// $all = [
+//     "Bawang,Mentega",
+//     "Bawang,Telur",
+//     "Telur,Pisang,Bawang,Apel",
+//     "Bawang,Telur,Tissue,Roti,Mentega",
+//     "Apel,Pisang,Roti,Telur",
+//     "Telur,Pisang,Apel,Mentega",
+//     "Telur,Mentega,Tissue,Roti",
+//     "Pisang,Bawang,Apel,Mentega",
+//     "Pisang,Bawang,Telur",
+//     "Bawang,Apel,Mentega",
+// ];
+
+// Contoh di PDF
 $all = [
-    "Bawang,Mentega",
-    "Bawang,Telur",
-    "Telur,Pisang,Bawang,Apel",
-    "Bawang,Telur,Tissue,Roti,Mentega",
-    "Apel,Pisang,Roti,Telur",
-    "Telur,Pisang,Apel,Mentega",
-    "Telur,Mentega,Tissue,Roti",
-    "Pisang,Bawang,Apel,Mentega",
-    "Pisang,Bawang,Telur",
-    "Bawang,Apel,Mentega",
-];
+    "A,C,D",
+    "B,C,E",
+    "A,B,C,E",
+    "B,E"
+];  
+
 
 // $all=[
 //     "P,T,S,J",
@@ -135,7 +147,7 @@ function L1($all)
             } else {
                 $data[$b] = [
                     "pair"  => $b,
-                    "sum"       => 1,
+                    "sum"   => 1,
                 ];
             }
         }
@@ -233,8 +245,6 @@ function L3($data, $all, $minSupport,$minConfidence)
     // }
 
     // var_dump($out);
-
-
 
     return $out;
 }
